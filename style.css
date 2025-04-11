@@ -1,0 +1,109 @@
+/* Reset & Base */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #1d2b64, #f8cdda);
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Container */
+  .container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Title */
+  .title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .x {
+    color: #00ffff;
+    font-weight: bold;
+  }
+  .o {
+    color: #ff00ff;
+    font-weight: bold;
+  }
+  
+  /* Board */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .cell {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cell:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+  }
+  
+  .winner {
+    background: rgba(0, 255, 170, 0.6) !important;
+    box-shadow: 0 0 20px #00ffc3, 0 0 40px #00ffc3;
+    animation: glow 1s infinite alternate;
+  }
+  
+  @keyframes glow {
+    0% { box-shadow: 0 0 10px #00ffc3; }
+    100% { box-shadow: 0 0 30px #00ffc3; }
+  }
+  
+  /* Message */
+  .message {
+    font-size: 1.5rem;
+    margin: 10px 0 20px;
+  }
+  
+  /* Button */
+  .glow-button {
+    background-color: #00c3ff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px #00c3ff;
+  }
+  
+  .glow-button:hover {
+    background-color: #0f8fff;
+    box-shadow: 0 0 30px #00eaff;
+  }
+  

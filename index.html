@@ -1,194 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DynoPage - Empowering Innovation</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-
-  <!-- AOS (Animate On Scroll) -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-  <style>
-    body {
-      scroll-behavior: smooth;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                  url('https://source.unsplash.com/1600x900/?technology,future') no-repeat center center;
-      background-size: cover;
-      height: 100vh;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-    }
-
-    .feature-icon {
-      font-size: 55px;
-      color: #0d6efd;
-    }
-
-    .btn-glow:hover {
-      box-shadow: 0 0 15px rgba(13, 110, 253, 0.6);
-      transform: translateY(-2px);
-    }
-
-    .feature-box {
-      transition: transform 0.3s;
-    }
-
-    .feature-box:hover {
-      transform: translateY(-5px);
-    }
-
-    .form-control:focus {
-      border-color: #0d6efd;
-      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
-    }
-
-    footer {
-      background-color: #111;
-    }
-  </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tic Tac Toe AI</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+  <div class="container">
+    <h1 class="title">Tic Tac Toe</h1>
+    <p class="subtitle">You <span class="x">X</span> vs <span class="o">O</span> AI</p>
+    
+    <div id="board" class="board"></div>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">DynoPage</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav me-3">
-          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-        <a class="btn btn-outline-light btn-sm px-3 rounded-pill btn-glow" href="admin.html">
-          <i class="bi bi-bar-chart-fill me-1"></i> Admin
-        </a>
-      </div>
-    </div>
-  </nav>
+    <div class="message" id="message"></div>
+    <button onclick="resetGame()" class="glow-button">Restart Game</button>
+  </div>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="container">
-      <h1 data-aos="fade-down">Empower Your Digital Journey</h1>
-      <p class="lead mt-2" data-aos="fade-up" data-aos-delay="200">Crafting modern solutions for tomorrow’s challenges.</p>
-      <a href="#contact" class="btn btn-primary btn-lg btn-glow mt-4 px-5" data-aos="zoom-in" data-aos-delay="400">Get Started</a>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section id="features" class="py-5 bg-light">
-    <div class="container text-center">
-      <h2 class="mb-5 fw-bold" data-aos="fade-up">Our Core Features</h2>
-      <div class="row g-4">
-        <div class="col-md-4" data-aos="flip-left">
-          <div class="p-4 bg-white shadow rounded feature-box">
-            <i class="bi bi-lightning-charge-fill feature-icon mb-3"></i>
-            <h5 class="fw-semibold">Lightning Fast</h5>
-            <p>Engineered for speed with minimal latency and optimal performance.</p>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="flip-up" data-aos-delay="100">
-          <div class="p-4 bg-white shadow rounded feature-box">
-            <i class="bi bi-shield-lock-fill feature-icon mb-3"></i>
-            <h5 class="fw-semibold">Secure by Design</h5>
-            <p>We implement robust security from ground up, giving you peace of mind.</p>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="flip-right" data-aos-delay="200">
-          <div class="p-4 bg-white shadow rounded feature-box">
-            <i class="bi bi-stars feature-icon mb-3"></i>
-            <h5 class="fw-semibold">Top Rated Support</h5>
-            <p>Get expert assistance anytime, backed by real humans who care.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="py-5 bg-white">
-    <div class="container text-center">
-      <h2 class="mb-4 fw-bold" data-aos="fade-up">Get In Touch</h2>
-      <form class="row g-3 justify-content-center" onsubmit="handleSubmit(event)" data-aos="zoom-in">
-        <div class="col-md-4">
-          <input type="text" id="name" class="form-control" placeholder="Your Name" required>
-        </div>
-        <div class="col-md-4">
-          <input type="email" id="email" class="form-control" placeholder="Your Email" required>
-        </div>
-        <div class="col-8">
-          <textarea id="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary px-5 btn-glow">Send Message</button>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="text-white text-center py-4">
-    <p class="mb-0">&copy; 2025 <strong>DynoPage</strong>. Built with passion, powered by Bootstrap 🚀</p>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- AOS Animation Library -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init();
-
-    function handleSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const message = document.getElementById("message").value;
-
-      fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, message }),
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          alert(`Thanks ${name}! Your message was sent.`);
-          document.querySelector("form").reset();
-        } else {
-          alert("Error: Could not send message.");
-        }
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
